@@ -1,4 +1,5 @@
-import { UserProvider } from '@auth0/nextjs-auth0' // UserProvider Permite que todos os componentes tenham acesso ao usuário
+import { UserProvider } from '@auth0/nextjs-auth0'
+import '../styles/global.css';
 
 function MyApp({ Component, pageProps }) {
   return (

@@ -21,8 +21,10 @@ export class AuthorizationGuard implements CanActivate {
   }
 
   async canActivate(context: ExecutionContext): Promise<boolean> {
+    // getContext returns the GraphQL context object 
     const { req, res } = GqlExecutionContext.create(context).getContext();
 
+    // Check if the request is a valid JWT
     const checkJWT = promisify(
       jwt({
         secret: expressJwtSecret({
@@ -39,7 +41,6 @@ export class AuthorizationGuard implements CanActivate {
 
     try {
       await checkJWT(req, res);
-
       return true;
     } catch (err) {
       throw new UnauthorizedException(err);

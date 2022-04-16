@@ -1,0 +1,7 @@
+# graphql codegen: gera o codigo de query atraves do schema 
+query GetProducts {
+  products {
+    id
+    title
+  }
+}

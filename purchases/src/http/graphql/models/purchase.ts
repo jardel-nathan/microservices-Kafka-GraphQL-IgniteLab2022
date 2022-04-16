@@ -1,13 +1,13 @@
 import { Field, ID, ObjectType, registerEnumType } from '@nestjs/graphql';
 import { Product } from './product';
 
-enum PurchaseStatus { //* enum para criar os status de compra
+enum PurchaseStatus {
   PENDING = 'PENDING',
   APPROVED = 'APPROVED',
   FAILED = 'FAILED',
 }
 
-registerEnumType(PurchaseStatus, { //* registra o enum no graphql
+registerEnumType(PurchaseStatus, {
   name: 'PurchaseStatus',
   description: 'Available purchase statuses',
 });

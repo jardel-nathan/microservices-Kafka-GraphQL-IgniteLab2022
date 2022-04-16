@@ -5,10 +5,9 @@ import { Enrollment } from './enrollment';
 @Directive('@extends')
 @Directive('@key(fields: "authUserId")')
 export class Student {
-  @Field(() => ID)
   id: string;
 
-  @Field(() => String)
+  @Field(() => ID)
   @Directive('@external')
   authUserId: string;
 

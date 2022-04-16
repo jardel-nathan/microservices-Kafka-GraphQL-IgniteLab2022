@@ -1,4 +1,4 @@
-import { ApolloDriver } from '@nestjs/apollo';
+import { ApolloDriver, ApolloFederationDriver, ApolloFederationDriverConfig } from '@nestjs/apollo';
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import {GraphQLModule} from '@nestjs/graphql';
@@ -20,7 +20,7 @@ import { PurchasesResolver } from './graphql/resolvers/purchase.resolver';
     DatabaseModule,  // import the database module
     MessagingModule, // import the message module
 
-    GraphQLModule.forRoot({driver: ApolloDriver,autoSchemaFile: path.resolve(process.cwd(), 'src/schema.gql')}) // path to schema  file created by graphql-code-generator
+    GraphQLModule.forRoot<ApolloFederationDriverConfig>({driver: ApolloFederationDriver,autoSchemaFile: path.resolve(process.cwd(), 'src/schema.gql')}) // path to schema  file created by graphql-code-generator
 ],
   providers: [
     // Resolvers

@@ -29,11 +29,11 @@ export class StudentsService {
     });
   }
 
-  // createStudent({ authUserId }: CreateStudentParams) {
-  //   return this.prisma.student.create({
-  //     data: {
-  //       authUserId,
-  //     },
-  //   });
-  // }
+  createStudent({ authUserId}: CreateStudentParams) {
+    return this.prisma.student.create({
+      data:{
+        authUserId,
+      }
+    })
+  }
 }
